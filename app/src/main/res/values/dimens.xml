@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--    Hero item-->
+    <dimen name="heroItemHeight">100dp</dimen>
+    <dimen name="heroItemElevation">10dp</dimen>
+    <dimen name="heroItemCornerRadius">10dp</dimen>
+    <dimen name="heroItemMainPadding">10dp</dimen>
+    <dimen name="heroItemIconSize">80dp</dimen>
+    <dimen name="heroItemNameTextSize">24sp</dimen>
+    <dimen name="heroItemDateTextSize">14sp</dimen>
+    <dimen name="heroItemNameMarginStart">20dp</dimen>
+</resources>
