@@ -8,4 +8,5 @@
     <color name="colorHeroItemBackground">#ECECEC</color>
 
     <color name="colorProgressBar">#B6B5B5</color>
+    <color name="colorTryAgainText">#2196F3</color>
 </resources>

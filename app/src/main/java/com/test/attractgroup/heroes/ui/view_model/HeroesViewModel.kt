@@ -35,5 +35,13 @@ class HeroesViewModel(private val repository: IHeroesRepository) : ViewModel() {
         })
     }
 
+    fun filterData(enteredString: String){
+
+    }
+
+    fun onHeroItemClick(id: Int){
+
+    }
+
     val state: LiveData<HeroesFragmentState> = _state
 }
