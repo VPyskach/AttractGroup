@@ -6,4 +6,6 @@
 
     <color name="colorSearch">#CFCECE</color>
     <color name="colorHeroItemBackground">#ECECEC</color>
+
+    <color name="colorProgressBar">#B6B5B5</color>
 </resources>

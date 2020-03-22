@@ -14,10 +14,8 @@
         <item name="searchViewStyle">@style/AppSearchViewStyle</item>
     </style>
 
-    <style name="AppSearchViewStyle" parent="Widget.AppCompat.SearchView">
-        <item name="queryBackground">@android:color/transparent</item>
-        <item name="searchIcon">@drawable/ic_search</item>
-        <item name="queryHint">@string/search_hint</item>
+    <style name="ProgressBarStyle" parent="AppTheme.NoActionBar">
+        <item name="colorAccent">@color/colorProgressBar</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />

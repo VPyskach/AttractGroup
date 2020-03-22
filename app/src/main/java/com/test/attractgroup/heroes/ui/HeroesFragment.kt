@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.test.attractgroup.R
 import com.test.attractgroup.heroes.data.model.Hero
+import com.test.attractgroup.heroes.ui.view_model.HeroesViewModel
 
 class HeroesFragment : Fragment() {
 
@@ -19,7 +20,7 @@ class HeroesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val root = inflater.inflate(R.layout.fragment_heroes, container, false)
         heroesViewModel = ViewModelProviders.of(this).get(HeroesViewModel::class.java)
         heroesViewModel.refreshData()
         heroesViewModel.state.observe(this, Observer {
