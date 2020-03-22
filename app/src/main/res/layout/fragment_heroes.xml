@@ -13,7 +13,7 @@
         android:visibility="visible">
 
         <EditText
-            android:id="@+id/etHeroFilter"
+            android:id="@+id/etHeroesFilter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background_normal"
@@ -26,14 +26,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcHeroesList"
+            android:id="@+id/rvHeroesList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/etHeroFilter" />
+            app:layout_constraintTop_toBottomOf="@id/etHeroesFilter" />
     </LinearLayout>
 
     <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="@dimen/progressBarSize"
         android:layout_height="@dimen/progressBarSize"
         app:layout_constraintStart_toStartOf="parent"

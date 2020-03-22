@@ -10,9 +10,11 @@
     app:cardCornerRadius="@dimen/heroItemCornerRadius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clHeroItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/heroItemMainPadding">
+
         <ImageView
             android:id="@+id/ivHeroItemIcon"
             android:layout_width="@dimen/heroItemIconSize"

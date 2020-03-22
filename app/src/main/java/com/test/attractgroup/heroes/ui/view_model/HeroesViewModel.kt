@@ -14,7 +14,7 @@ class HeroesViewModel(private val repository: IHeroesRepository) : ViewModel() {
 
     fun refreshData() {
         _state.value =
-            if (_heroes.isNotEmpty()) HeroesFragmentState.LoadDataSuccess(
+            if (_heroes.isNotEmpty()) HeroesFragmentState.ShowFilteredData(
                 _heroes
             ) else HeroesFragmentState.Loading
 
@@ -24,13 +24,13 @@ class HeroesViewModel(private val repository: IHeroesRepository) : ViewModel() {
                 if (_heroes != data) {
                     _heroes = data
                     _state.value =
-                        HeroesFragmentState.LoadDataSuccess(_heroes)
+                        HeroesFragmentState.ShowFilteredData(_heroes)
                 }
             }
 
             override fun onError(message: String) {
                 _state.value =
-                    HeroesFragmentState.LoadDataFailed(message)
+                    HeroesFragmentState.ShowLoadDataError(message)
             }
         })
     }
