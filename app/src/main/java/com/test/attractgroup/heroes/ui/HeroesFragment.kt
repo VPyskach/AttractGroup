@@ -21,8 +21,9 @@ class HeroesFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         heroesViewModel = ViewModelProviders.of(this).get(HeroesViewModel::class.java)
+        heroesViewModel.refreshData()
         heroesViewModel.state.observe(this, Observer {
-
+            renderState(it)
         })
         return root
     }
@@ -34,6 +35,8 @@ class HeroesFragment : Fragment() {
             is HeroesFragmentState.LoadDataSuccess -> showHeroesList(state.heroes)
 
             is HeroesFragmentState.LoadDataFailed -> showLoadingError(state.message)
+
+            is HeroesFragmentState.ShowHeroInfo -> showHeroInfo(state.heroes, state.position)
         }
     }
 

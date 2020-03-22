@@ -6,5 +6,5 @@ sealed class HeroesFragmentState {
     object Loading: HeroesFragmentState()
     class LoadDataSuccess(val heroes: List<Hero>): HeroesFragmentState()
     class LoadDataFailed(val message: String): HeroesFragmentState()
-    class ShowHeroInfo(val heroes: List<Hero>, val startPosition: Int): HeroesFragmentState()
+    class ShowHeroInfo(val heroes: List<Hero>, val position: Int): HeroesFragmentState()
 }

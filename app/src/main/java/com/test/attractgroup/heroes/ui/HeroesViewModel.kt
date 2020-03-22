@@ -18,8 +18,10 @@ class HeroesViewModel(private val repository: IHeroesRepository) : ViewModel() {
         repository.getHeroes(object : IHeroesRepository.LoadHeroesCallback {
 
             override fun onSuccess(data: List<Hero>) {
-                _heroes = ArrayList(data)
-                _state.value = HeroesFragmentState.LoadDataSuccess(_heroes)
+                if (_heroes != data) {
+                    _heroes = data
+                    _state.value = HeroesFragmentState.LoadDataSuccess(_heroes)
+                }
             }
 
             override fun onError(message: String) {
