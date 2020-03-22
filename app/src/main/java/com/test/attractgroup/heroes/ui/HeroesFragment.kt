@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.attractgroup.R
 import com.test.attractgroup.common.hide
 import com.test.attractgroup.common.show
+import com.test.attractgroup.heroes.data.HeroesRepository
 import com.test.attractgroup.heroes.data.model.Hero
 import com.test.attractgroup.heroes.ui.recycler.HeroItemClickListener
 import com.test.attractgroup.heroes.ui.recycler.HeroesRecyclerAdapter
 import com.test.attractgroup.heroes.ui.view_model.HeroesViewModel
+import com.test.attractgroup.heroes.ui.view_model.HeroesViewModelFactory
 import kotlinx.android.synthetic.main.fragment_heroes.*
 
 class HeroesFragment : Fragment(), HeroItemClickListener{
@@ -42,7 +44,7 @@ class HeroesFragment : Fragment(), HeroItemClickListener{
     }
 
     private fun initViewModel(){
-        heroesViewModel = ViewModelProviders.of(this).get(HeroesViewModel::class.java)
+        heroesViewModel = ViewModelProviders.of(this, HeroesViewModelFactory(HeroesRepository())).get(HeroesViewModel::class.java)
         heroesViewModel.state.observe(this, Observer {
             renderState(it)
         })
