@@ -8,7 +8,7 @@ import com.test.attractgroup.heroes.data.model.HeroJsonParser
 class HeroesRepository : IHeroesRepository {
 
     override fun getHeroes(callback: IHeroesRepository.LoadHeroesCallback?) {
-        HttpRequest().makeAsyncGetRequest("", object : HttpRequestCallback {
+        HttpRequest().makeAsyncGetRequest(" http://test.php-cd.attractgroup.com/test.json", object : HttpRequestCallback {
             override fun onSuccess(res: String) {
                 val heroes = HeroJsonParser(res).getHeroes()
                 if (heroes == null) {
