@@ -39,7 +39,7 @@ class HeroesFragment : Fragment(), HeroItemClickListener{
 
     private fun initViews(){
         rvHeroesList.layoutManager = LinearLayoutManager(context)
-        tvTryAgain.setOnClickListener { heroesViewModel.refreshData() }
+        tvTryAgain.setOnClickListener { heroesViewModel.loadHeroes() }
         etHeroesFilter.addTextChangedListener(textWatcher())
     }
 
@@ -48,7 +48,7 @@ class HeroesFragment : Fragment(), HeroItemClickListener{
         heroesViewModel.state.observe(this, Observer {
             renderState(it)
         })
-        heroesViewModel.refreshData()
+        heroesViewModel.loadHeroes()
     }
 
     private fun textWatcher(): TextWatcher = object : TextWatcher{

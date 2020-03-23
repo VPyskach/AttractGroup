@@ -12,7 +12,7 @@ class HeroesViewModel(private val repository: IHeroesRepository) : ViewModel() {
     private val _state = MutableLiveData<HeroesFragmentState>()
     private var _heroes: List<Hero> = ArrayList()
 
-    fun refreshData() {
+    fun loadHeroes() {
         _state.value =
             if (_heroes.isNotEmpty()) HeroesFragmentState.ShowFilteredData(
                 _heroes
@@ -34,6 +34,8 @@ class HeroesViewModel(private val repository: IHeroesRepository) : ViewModel() {
             }
         })
     }
+
+
 
     fun filterData(enteredString: String){
 

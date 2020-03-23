@@ -4,7 +4,7 @@ import com.test.attractgroup.heroes.data.model.Hero
 
 interface IHeroesRepository {
 
-    fun getHeroes(callback: LoadHeroesCallback)
+    fun getHeroes(callback: LoadHeroesCallback?)
 
     interface LoadHeroesCallback {
         fun onSuccess(data: List<Hero>)
