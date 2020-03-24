@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -31,24 +32,28 @@ class HeroesFragment : Fragment(), HeroItemClickListener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_heroes, container, false)
+        return inflater.inflate(R.layout.fragment_heroes, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
         initViews()
         initViewModel()
-        return root
     }
 
     private fun initViews(){
-        rvHeroesList.layoutManager = LinearLayoutManager(context)
-        tvTryAgain.setOnClickListener { heroesViewModel.loadHeroes() }
+        val layoutManager = LinearLayoutManager(context)
+        rvHeroesList.layoutManager = layoutManager
+        tvTryAgain.setOnClickListener { heroesViewModel.onStart() }
         etHeroesFilter.addTextChangedListener(textWatcher())
     }
 
     private fun initViewModel(){
         heroesViewModel = ViewModelProviders.of(this, HeroesViewModelFactory(HeroesRepository())).get(HeroesViewModel::class.java)
-        heroesViewModel.state.observe(this, Observer {
+        heroesViewModel.stateObserver.observe(this, Observer {
             renderState(it)
         })
-        heroesViewModel.loadHeroes()
+        heroesViewModel.onStart()
     }
 
     private fun textWatcher(): TextWatcher = object : TextWatcher{
@@ -69,7 +74,7 @@ class HeroesFragment : Fragment(), HeroItemClickListener{
 
             is HeroesFragmentState.ShowLoadDataError -> showLoadingError(state.message)
 
-            is HeroesFragmentState.ShowFilteredData -> showFilteredData(state.heroes)
+            is HeroesFragmentState.ShowFilteredData -> showFilteredData(state.heroesFilteredList)
 
             is HeroesFragmentState.ShowHeroInfo -> showHeroInfo(state.heroes, state.position)
         }

@@ -18,7 +18,7 @@ class HeroesRecyclerAdapter(
 
     private val list = ArrayList<Hero>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroesRecyclerViewHolder {
-        return HeroesRecyclerViewHolder.instance(parent.context)
+        return HeroesRecyclerViewHolder.instance(parent)
     }
 
     override fun getItemCount(): Int {
@@ -41,9 +41,9 @@ class HeroesRecyclerAdapter(
 
     class HeroesRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         companion object {
-            fun instance(context: Context): HeroesRecyclerViewHolder {
+            fun instance(parent: ViewGroup): HeroesRecyclerViewHolder {
                 val view =
-                    LayoutInflater.from(context).inflate(R.layout.hero_item_recycler_layout, null)
+                    LayoutInflater.from(parent.context).inflate(R.layout.hero_item_recycler_layout, parent, false)
                 return HeroesRecyclerViewHolder(view)
             }
         }

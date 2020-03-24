@@ -20,6 +20,7 @@ class HeroJsonParser(val str: String) {
                 val time = heroJson.getLong("time")
                 result.add(Hero(id, name, image, description, time))
             }
+            return result
         } catch (e: Exception) {
             Log.e(TAG, "Error parsing json: ${e.message}")
         }

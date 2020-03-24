@@ -24,7 +24,7 @@ class HttpRequest {
 
     private fun getRequest(url: String): String {
 
-        val obj = URL("")
+        val obj = URL(url)
         val connection = obj.openConnection() as HttpURLConnection
 
         connection.requestMethod = "GET"
@@ -49,7 +49,11 @@ class HttpRequest {
         AsyncTask<String, Void, String>() {
 
         override fun doInBackground(vararg params: String?): String {
-            return getRequest(params[0] ?: "")
+            try {
+                return getRequest(params[0] ?: "")
+            }catch (e: Exception){
+                return ""
+            }
         }
 
         override fun onPostExecute(result: String?) {

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import com.test.attractgroup.R
 import android.text.format.DateFormat
+import com.test.attractgroup.image_loading.ImageLoader
 import java.time.Year
 import java.util.*
 
@@ -28,9 +29,9 @@ fun View.hide() {
 
 fun Long.getDateFormat(): String {
     val date = Date(this)
-    val day = DateFormat.format("EE", date)
+    val day = date.day
     val month = DateFormat.format("MMMM", date)
-    val year = DateFormat.format("y", date)
+    val year = DateFormat.format("yyyy", date)
     val hours = DateFormat.format("hh", date)
     val minutes = DateFormat.format("mm", date)
 
@@ -38,7 +39,7 @@ fun Long.getDateFormat(): String {
 }
 
 fun ImageView.loadImage(context: Context, url: String) {
-
+    ImageLoader.load(this, url)
 }
 
 fun ImageView.loadImage(context: Context, url: String, defaultImage: Int) {

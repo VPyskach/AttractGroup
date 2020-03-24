@@ -4,11 +4,12 @@
 
     <!--    Hero item-->
     <dimen name="heroItemHeight">100dp</dimen>
-    <dimen name="heroItemElevation">10dp</dimen>
+    <dimen name="heroItemElevation">3dp</dimen>
     <dimen name="heroItemCornerRadius">10dp</dimen>
+    <dimen name="heroItemMainMargin">5dp</dimen>
     <dimen name="heroItemMainPadding">10dp</dimen>
     <dimen name="heroItemIconSize">80dp</dimen>
     <dimen name="heroItemNameTextSize">24sp</dimen>
-    <dimen name="heroItemDateTextSize">14sp</dimen>
+    <dimen name="heroItemDateTextSize">11sp</dimen>
     <dimen name="heroItemNameMarginStart">20dp</dimen>
 </resources>
